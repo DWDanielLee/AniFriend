@@ -7,11 +7,24 @@ using UnityEngine.SceneManagement;
 public class SceneManagement : MonoBehaviour
 {
     private BgmManager bgm;
+    private Scene scene;
 
     private void Awake()
     {
+        scene = SceneManager.GetActiveScene();
         bgm = FindObjectOfType<BgmManager>();
-        DontDestroyOnLoad(bgm.gameObject);
+        if (scene.name == "5Play")
+        {
+            Debug.Log("dd");
+            Destroy(bgm.gameObject);
+            return;
+        }
+
+        if (bgm != null)
+        {
+            DontDestroyOnLoad(bgm.gameObject);    
+        }
+        
     }
 
 
