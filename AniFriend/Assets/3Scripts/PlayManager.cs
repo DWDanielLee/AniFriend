@@ -47,7 +47,7 @@ public sealed class PlayManager : MonoBehaviourPunCallbacks {
                 return;
             }
             var pop = (int)PhotonNetwork.LocalPlayer.CustomProperties["Population"];
-            PhotonNetwork.CreateRoom(title, new RoomOptions() { MaxPlayers = (byte)pop });
+            PhotonNetwork.CreateRoom(title, new RoomOptions() { MaxPlayers = (byte)pop, PublishUserId = true });
             return;
         }
 
@@ -57,6 +57,13 @@ public sealed class PlayManager : MonoBehaviourPunCallbacks {
     public override void OnJoinedRoom() {
         var character = (string)PhotonNetwork.LocalPlayer.CustomProperties["Character"];
         PhotonNetwork.Instantiate(character, Vector3.zero, Quaternion.identity);
+
+        if (PhotonNetwork.IsMasterClient) {
+            if (Chatting.Instance != null) {
+                var message = "방이 성공적으로 생성되었습니다.";
+                Chatting.Instance.SystemMessage(message);
+            }
+        }
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message) {
@@ -69,5 +76,26 @@ public sealed class PlayManager : MonoBehaviourPunCallbacks {
 
     public override void OnDisconnected(DisconnectCause cause) {
         SceneManager.LoadScene("1Start");
+    }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer) {
+        if (!PhotonNetwork.IsMasterClient) return;
+
+        if (Chatting.Instance == null) return;
+        var nickName = newPlayer.NickName == null || newPlayer.NickName == "" 
+            ? newPlayer.UserId : newPlayer.NickName;
+        var message = string.Format($"{nickName}님이 입장하셨습니다.");
+        Chatting.Instance.SystemMessage(message);
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer) {
+        if (!PhotonNetwork.IsMasterClient) return;
+
+        if (Chatting.Instance == null) return;
+        var nickName = otherPlayer.NickName == null || otherPlayer.NickName == ""
+            ? otherPlayer.UserId : otherPlayer.NickName;
+        Debug.Log(PhotonNetwork.CurrentRoom.PublishUserId);
+        var message = $"{nickName}님이 퇴장하셨습니다.";
+        Chatting.Instance.SystemMessage(message);
     }
 }
