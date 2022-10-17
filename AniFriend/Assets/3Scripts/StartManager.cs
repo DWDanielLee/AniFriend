@@ -24,26 +24,23 @@ public sealed class StartManager : MonoBehaviourPunCallbacks {
             button_Play.interactable = false;
         }
 
-        if (text_network != null) {
-            text_network.text = "Offline : Connecting...";
-        }
-
-        if (!PhotonNetwork.IsConnected) {
-            PhotonNetwork.GameVersion = gameVersion;
-            PhotonNetwork.ConnectUsingSettings();
-            return;
-        }
-
-        if (text_network != null) {
-            text_network.text = "Online";
-        }
-
         if (PhotonNetwork.InRoom) {
             PhotonNetwork.LeaveRoom();
         }
 
         if (PhotonNetwork.InLobby) {
             PhotonNetwork.LeaveLobby();
+        }
+
+        if (PhotonNetwork.IsConnected) {
+            PhotonNetwork.Disconnect();
+        }
+
+        PhotonNetwork.GameVersion = gameVersion;
+        PhotonNetwork.ConnectUsingSettings();
+
+        if (text_network != null) {
+            text_network.text = "마스터 서버에 연결중...";
         }
     }
 
@@ -53,7 +50,7 @@ public sealed class StartManager : MonoBehaviourPunCallbacks {
         }
 
         if (text_network != null) {
-            text_network.text = "Online";
+            text_network.text = "연결성공";
         }
     }
 
@@ -63,7 +60,7 @@ public sealed class StartManager : MonoBehaviourPunCallbacks {
         }
 
         if (text_network != null) {
-            text_network.text = "Offline : Connecting...";
+            text_network.text = "연결실패: 다시 연결중...";
         }
 
         PhotonNetwork.ConnectUsingSettings();
