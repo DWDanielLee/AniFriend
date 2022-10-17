@@ -30,12 +30,13 @@ public sealed class LobbyManager : MonoBehaviourPunCallbacks {
 
         if (PhotonNetwork.InLobby) {
             PhotonNetwork.LeaveLobby();
-        }
+        } 
 
         PhotonNetwork.JoinLobby();
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList) {
+        Debug.Log("aa");
         if (prefab_room == null || content == null) return;
 
         while (roomQueue.Count > 0) {
