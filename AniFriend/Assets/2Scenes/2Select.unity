@@ -154,6 +154,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &148930154 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2910515581111630684, guid: f2471e07d670c5e4694db663baa1eb2b, type: 3}
+  m_PrefabInstance: {fileID: 2015841737}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &181403700
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,6 +253,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &278912598 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5818743954636932021, guid: 45dd76ea3e48f1b4f9ee53f144721d54, type: 3}
+  m_PrefabInstance: {fileID: 1597101733}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &312619643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -378,6 +388,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d641129db7fbaa047b4268d4789e10a1, type: 3}
+--- !u!1 &338984746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2799723953067973600, guid: 916e6e9d024ac9b4e8a2b7d8fd285cb4, type: 3}
+  m_PrefabInstance: {fileID: 1670000870}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &420792920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1628286061087071721, guid: 8d863aa0b58a54345a3b739c9e0954cf, type: 3}
+  m_PrefabInstance: {fileID: 608964613}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &428340598
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,6 +442,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 387c1272e64b2c54a8bf795915bd6744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characters:
+  - {fileID: 278912598}
+  - {fileID: 1177811890}
+  - {fileID: 338984746}
+  - {fileID: 1696386016}
+  - {fileID: 1054092124}
+  - {fileID: 1917248369}
+  - {fileID: 420792920}
+  - {fileID: 1238935771}
+  - {fileID: 148930154}
+  - {fileID: 1330147698}
 --- !u!1001 &504112020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -881,6 +912,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f85578abf80481e4fb46b3ecf2c37ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1054092124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5122630608825345782, guid: ad0058799afa43640919848d26f0f33b, type: 3}
+  m_PrefabInstance: {fileID: 2098403160}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1066949735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -946,6 +982,21 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3590169380440387965, guid: 3b1c696c0930f8345a849b46db7990f7, type: 3}
   m_PrefabInstance: {fileID: 1066949735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1177811890 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8988290474491168952, guid: 8640f86cc1cb10448814047cfd71eec9, type: 3}
+  m_PrefabInstance: {fileID: 504112020}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1238935771 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2698195539354330168, guid: 27e82c8a2f2dc474a8d10d84ae09e664, type: 3}
+  m_PrefabInstance: {fileID: 1918178242}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1330147698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 124788927993236608, guid: d5ef005d6d48d8c49a07b47298ed0362, type: 3}
+  m_PrefabInstance: {fileID: 1022682988}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1512261548
 PrefabInstance:
@@ -1264,6 +1315,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3852442045379738285, guid: 916e6e9d024ac9b4e8a2b7d8fd285cb4, type: 3}
   m_PrefabInstance: {fileID: 1670000870}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1696386016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8847477241755605793, guid: ac16983f506041947b81a28e5cca8743, type: 3}
+  m_PrefabInstance: {fileID: 654491707}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1900926950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1489,6 +1545,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d56123a0271c76241bb2c7c6253e8c15, type: 3}
+--- !u!1 &1917248369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3590169380440387970, guid: 3b1c696c0930f8345a849b46db7990f7, type: 3}
+  m_PrefabInstance: {fileID: 1066949735}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1918178242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2138,7 +2199,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1570994863402090618}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 428340600}
+        m_TargetAssemblyTypeName: SelectManager, Assembly-CSharp
+        m_MethodName: BtnNext
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1570994863997104169
 GameObject:
   m_ObjectHideFlags: 0
@@ -2259,7 +2332,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1570994863997104172}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 428340600}
+        m_TargetAssemblyTypeName: SelectManager, Assembly-CSharp
+        m_MethodName: BtnPrev
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &8414786903297900565
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2378,9 +2463,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1037458685}
-        m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
-        m_MethodName: GoToLobby
+      - m_Target: {fileID: 428340600}
+        m_TargetAssemblyTypeName: SelectManager, Assembly-CSharp
+        m_MethodName: BtnSelectCharacter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

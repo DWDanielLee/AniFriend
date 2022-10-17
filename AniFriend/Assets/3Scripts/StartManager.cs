@@ -45,6 +45,10 @@ public sealed class StartManager : MonoBehaviourPunCallbacks {
         if (PhotonNetwork.InLobby) {
             PhotonNetwork.LeaveLobby();
         }
+
+        if (button_Play != null) {
+            button_Play.interactable = true;
+        }
     }
 
     public override void OnConnectedToMaster() {
