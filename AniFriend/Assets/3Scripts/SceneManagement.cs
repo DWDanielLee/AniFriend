@@ -16,7 +16,7 @@ public class SceneManagement : MonoBehaviour
         if (scene.name == "5Play")
         {
             Debug.Log("dd");
-            Destroy(bgm.gameObject);
+            //Destroy(bgm.gameObject);
             return;
         }
 
