@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
 using Photon.Realtime;
@@ -9,7 +10,6 @@ public sealed class SelectManager : MonoBehaviourPunCallbacks {
     static SelectManager instance;
 
     [SerializeField] GameObject[] characters;
-    int index;
 
     void Awake() {
         if (instance == null) instance = this;
@@ -69,7 +69,11 @@ public sealed class SelectManager : MonoBehaviourPunCallbacks {
             if (characters[i].activeInHierarchy) {
                 ExitGames.Client.Photon.Hashtable properties = 
                     PhotonNetwork.LocalPlayer.CustomProperties;
-                properties.Add("Character", characters[i].name);
+                if (properties.ContainsKey("Character")) {
+                    properties["Character"] = characters[i].name;
+                } else {
+                    properties.Add("Character", characters[i].name);
+                }
                 PhotonNetwork.LocalPlayer.SetCustomProperties(properties);
                 break;
             }

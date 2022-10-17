@@ -22,8 +22,7 @@ public sealed class Chatting : MonoBehaviourPun {
         public readonly Text text;
 
         public MessageFormat(Date date, string userId, Text text, string nickName, string message) {
-            this.date = date;
-            this.text = text;
+            (this.date, this.text) = (date, text);
             if (this.text != null) {
                 this.text.text = '[' + (nickName == "" ? userId : nickName) + ']' + ' ' + message;
                 this.text.color = PhotonNetwork.LocalPlayer.UserId == userId ? Color.green : Color.white;
