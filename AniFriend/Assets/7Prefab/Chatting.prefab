@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8136929258458457374}
   - component: {fileID: 8136929258458457375}
   - component: {fileID: 8136929258458457372}
-  - component: {fileID: 8136929258458457369}
   - component: {fileID: 8136929258458457368}
   m_Layer: 5
   m_Name: Chatting
@@ -112,23 +111,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8136929258458457369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8136929258458457362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e79426f2e4afdf4b83f98385d2588be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  temp: {fileID: 0}
-  prefab_Message: {fileID: 2560287652692354429, guid: b0f81ae1ce58b904095524bfb464080c, type: 3}
-  content: {fileID: 8136929259139075036}
-  inputField: {fileID: 8136929259882676116}
-  max: 20
 --- !u!114 &8136929258458457368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,7 +820,7 @@ MonoBehaviour:
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8136929258458457369}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Chatting, Assembly-CSharp
         m_MethodName: OnSubmit
         m_Mode: 1

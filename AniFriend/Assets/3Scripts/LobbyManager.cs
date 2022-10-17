@@ -81,6 +81,11 @@ public sealed class LobbyManager : MonoBehaviourPunCallbacks {
         } else {
             properties.Add("Title", title);
         }
+        if (properties.ContainsKey("Host")) {
+            properties["Host"] = false;
+        } else {
+            properties.Add("Host", false);
+        }
         PhotonNetwork.LocalPlayer.SetCustomProperties(properties);
         SceneManager.LoadScene("5Play");
     }
