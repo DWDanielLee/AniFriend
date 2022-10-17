@@ -1,5 +1,6 @@
 using Photon.Pun;
 using Photon.Realtime;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -28,15 +29,28 @@ public sealed class LobbyManager : MonoBehaviourPunCallbacks {
             PhotonNetwork.LeaveRoom();
         }
 
-        if (PhotonNetwork.InLobby) {
-            PhotonNetwork.LeaveLobby();
-        } 
+        StartCoroutine("Renew");
+    }
 
-        PhotonNetwork.JoinLobby();
+    IEnumerator Renew() {
+        while (true) { 
+            if (PhotonNetwork.InLobby) {
+                if (roomQueue.Count != PhotonNetwork.CountOfRooms) {
+                    PhotonNetwork.LeaveLobby();
+                    PhotonNetwork.JoinLobby();
+                }
+            } else {
+                PhotonNetwork.JoinLobby();
+            }
+            yield return new WaitForSeconds(5f);
+        }
+    }
+
+    void OnDestroy() {
+        StopCoroutine("Renew");
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList) {
-        Debug.Log("aa");
         if (prefab_room == null || content == null) return;
 
         while (roomQueue.Count > 0) {
@@ -50,7 +64,7 @@ public sealed class LobbyManager : MonoBehaviourPunCallbacks {
             if (obj == null) return;
 
             var room = obj.GetComponent<Room>();
-            if (room == null) { Destroy(obj);  return; }
+            if (room == null) { Destroy(obj); return; }
 
             room.Init(info.Name, info.PlayerCount, info.MaxPlayers);
             roomQueue.Enqueue(obj);
@@ -58,7 +72,7 @@ public sealed class LobbyManager : MonoBehaviourPunCallbacks {
 
         var (width, height) = (content.sizeDelta.x, 0f);
         var rect = prefab_room.GetComponent<RectTransform>();
-        if (rect != null) { 
+        if (rect != null) {
             height += rect.rect.height * roomQueue.Count;
         }
         var padding = content.GetComponent<VerticalLayoutGroup>();
