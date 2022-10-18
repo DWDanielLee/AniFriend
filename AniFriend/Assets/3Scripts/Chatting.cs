@@ -8,6 +8,15 @@ using UnityEngine.UI;
 public sealed class Chatting : MonoBehaviourPun {
     public static Chatting Instance { get; private set; }
 
+    public bool IsFocused { 
+        get {
+            if (inputField != null) {
+                return inputField.isFocused;
+            }
+            return false;
+        } 
+    }
+
     [SerializeField] GameObject prefab_Message;
     [SerializeField] RectTransform content;
     [SerializeField] InputField inputField;
@@ -24,7 +33,13 @@ public sealed class Chatting : MonoBehaviourPun {
         public MessageFormat(Date date, string userId, Text text, string nickName, string message) {
             (this.date, this.text) = (date, text);
             if (this.text != null) {
-                this.text.text = '[' + (nickName == "" ? userId : nickName) + ']' + ' ' + message;
+                var tempMessage = message;
+                if (userId != "System") {
+                    var insertMessage = 
+                        '[' + ((nickName == null || nickName == "") ? userId : nickName) + ']' + ' ';
+                    tempMessage = insertMessage + tempMessage;
+                }
+                this.text.text = tempMessage;
                 this.text.color = PhotonNetwork.LocalPlayer.UserId == userId ? Color.green : Color.white;
             }
         }
@@ -126,5 +141,17 @@ public sealed class Chatting : MonoBehaviourPun {
             messages.Insert(index, new MessageFormat(date, userId, text, nickName, message));
             messages[index].text.transform.SetSiblingIndex(index);
         }
+    }
+
+    public void SystemMessage(string message) {
+            var userId = "System";
+            var nickName = PhotonNetwork.LocalPlayer.NickName;
+
+            var (year, month, day, hour, minute, second) =
+                (DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
+                DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+
+            photonView.RPC("InputMessage", RpcTarget.All,
+                year, month, day, hour, minute, second, userId, nickName, message);
     }
 }
