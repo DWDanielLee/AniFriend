@@ -69,3 +69,6 @@ crashlytics-build.properties
 
 #Temporary UserSettings
 *.dwlt
+
+[Aa]niFriend/UserSettings/EditorUserSettings.asset
+[Aa]niFriend/UserSettings/Layouts.default-2021.dwlt
