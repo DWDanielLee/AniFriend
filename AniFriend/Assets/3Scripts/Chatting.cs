@@ -37,7 +37,7 @@ public sealed class Chatting : MonoBehaviourPun {
                 if (userId != "System") {
                     var insertMessage = 
                         '[' + ((nickName == null || nickName == "") ? userId : nickName) + ']' + ' ';
-                    tempMessage?.Insert(0, insertMessage);
+                    tempMessage = insertMessage + tempMessage;
                 }
                 this.text.text = tempMessage;
                 this.text.color = PhotonNetwork.LocalPlayer.UserId == userId ? Color.green : Color.white;
