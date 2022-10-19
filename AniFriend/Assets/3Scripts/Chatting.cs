@@ -1,20 +1,19 @@
 using Photon.Pun;
 using System;
 using System.Collections.Generic;
-using System.Runtime.ExceptionServices;
 using UnityEngine;
 using UnityEngine.UI;
 
 public sealed class Chatting : MonoBehaviourPun {
     public static Chatting Instance { get; private set; }
 
-    public bool IsFocused { 
+    public bool IsFocused {
         get {
             if (inputField != null) {
                 return inputField.isFocused;
             }
             return false;
-        } 
+        }
     }
 
     [SerializeField] GameObject prefab_Message;
@@ -33,14 +32,16 @@ public sealed class Chatting : MonoBehaviourPun {
         public MessageFormat(Date date, string userId, Text text, string nickName, string message) {
             (this.date, this.text) = (date, text);
             if (this.text != null) {
+                var dateMessage = $"[{date.GetTimeStamp()}]";
                 var tempMessage = message;
                 if (userId != "System") {
-                    var insertMessage = 
-                        '[' + ((nickName == null || nickName == "") ? userId : nickName) + ']' + ' ';
-                    tempMessage = insertMessage + tempMessage;
+                    var temp = (nickName == null || nickName == "") ? userId : nickName;
+                    var insertMessage = $"[{temp}]";
+                    tempMessage = insertMessage + ' '+ tempMessage;
                 }
-                this.text.text = tempMessage;
-                this.text.color = PhotonNetwork.LocalPlayer.UserId == userId ? Color.green : Color.white;
+                this.text.text = dateMessage + ' ' + tempMessage;
+                this.text.color = PhotonNetwork.LocalPlayer.UserId == userId 
+                    ? Color.green : Color.white;
             }
         }
     }
@@ -62,6 +63,18 @@ public sealed class Chatting : MonoBehaviourPun {
             }
             return 0;
         }
+
+        public readonly string GetTimeStamp() {
+            try {
+                var (half, hour) = ("오전", info[3]);
+                if (hour > 12) {
+                    (half, hour) = ("오후", hour - 12);
+                }
+                return $"{half} {hour:00}:{info[4]:00}:{info[5]:00}";
+            } catch { }
+
+            return "";
+        }
     }
 
     List<MessageFormat> messages = new List<MessageFormat>();
@@ -72,6 +85,8 @@ public sealed class Chatting : MonoBehaviourPun {
     }
 
     public void OnSubmit() {
+        if (!PhotonNetwork.InRoom) return; 
+
         if (inputField != null && inputField.text != "") {
             var message = inputField.text;
             inputField.text = "";
@@ -79,11 +94,11 @@ public sealed class Chatting : MonoBehaviourPun {
             var userId = PhotonNetwork.LocalPlayer.UserId;
             var nickName = PhotonNetwork.LocalPlayer.NickName;
 
-            var (year, month, day, hour, minute, second) = 
-                (DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 
+            var (year, month, day, hour, minute, second) =
+                (DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
                 DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
 
-            photonView.RPC("InputMessage", RpcTarget.All, 
+            photonView.RPC("InputMessage", RpcTarget.All,
                 year, month, day, hour, minute, second, userId, nickName, message);
 
             if (content != null) {
@@ -148,14 +163,19 @@ public sealed class Chatting : MonoBehaviourPun {
     }
 
     public void SystemMessage(string message) {
-            var userId = "System";
-            var nickName = PhotonNetwork.LocalPlayer.NickName;
+        var userId = "System";
+        var nickName = PhotonNetwork.LocalPlayer.NickName;
 
-            var (year, month, day, hour, minute, second) =
-                (DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
-                DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+        var (year, month, day, hour, minute, second) =
+            (DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
+            DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
 
-            photonView.RPC("InputMessage", RpcTarget.All,
-                year, month, day, hour, minute, second, userId, nickName, message);
+        photonView.RPC("InputMessage", RpcTarget.All,
+            year, month, day, hour, minute, second, userId, nickName, message);
+    }
+
+    public void TurnOnChatting() {
+        if (inputField == null) return;
+        inputField.interactable = true;
     }
 }
