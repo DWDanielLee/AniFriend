@@ -32,7 +32,7 @@ public sealed class NickNameOverlap : MonoBehaviourPunCallbacks {
         var otherPlayers = PhotonNetwork.PlayerListOthers;
         foreach (var player in otherPlayers) {
             if (inputField.text == player.NickName) {
-                overlap.text = "닉네임이 이미 존재합니다.";
+                overlap.text = "이미 존재하는 닉네임입니다.";
                 return;
             }
         }
