@@ -78,23 +78,11 @@ public sealed class PlayManager : MonoBehaviourPunCallbacks {
         SceneManager.LoadScene("1Start");
     }
 
-    public override void OnPlayerEnteredRoom(Player newPlayer) {
-        if (!PhotonNetwork.IsMasterClient) return;
-
+    void OnDestroy() {
         if (Chatting.Instance == null) return;
-        var nickName = newPlayer.NickName == null || newPlayer.NickName == "" 
-            ? newPlayer.UserId : newPlayer.NickName;
-        var message = string.Format($"{nickName}¥‘¿Ã ¿‘¿Â«œºÃΩ¿¥œ¥Ÿ.");
-        Chatting.Instance.SystemMessage(message);
-    }
-
-    public override void OnPlayerLeftRoom(Player otherPlayer) {
-        if (!PhotonNetwork.IsMasterClient) return;
-
-        if (Chatting.Instance == null) return;
-        var nickName = otherPlayer.NickName == null || otherPlayer.NickName == ""
-            ? otherPlayer.UserId : otherPlayer.NickName;
-        Debug.Log(PhotonNetwork.CurrentRoom.PublishUserId);
+        var nickName = PhotonNetwork.LocalPlayer.NickName == null 
+            || PhotonNetwork.LocalPlayer.NickName == ""
+            ? PhotonNetwork.LocalPlayer.UserId : PhotonNetwork.LocalPlayer.NickName;
         var message = $"{nickName}¥‘¿Ã ≈¿Â«œºÃΩ¿¥œ¥Ÿ.";
         Chatting.Instance.SystemMessage(message);
     }
