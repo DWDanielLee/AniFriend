@@ -9,7 +9,8 @@ using Photon.Realtime;
 public sealed class SelectManager : MonoBehaviourPunCallbacks { 
     static SelectManager instance;
 
-    [SerializeField] GameObject[] characters;
+    [SerializeField] GameObject characterGroup;
+    List<GameObject> characters = new List<GameObject>();
 
     void Awake() {
         if (instance == null) instance = this;
@@ -29,6 +30,13 @@ public sealed class SelectManager : MonoBehaviourPunCallbacks {
         if (PhotonNetwork.InLobby) {
             PhotonNetwork.LeaveLobby();
         }
+
+        if (characterGroup != null) {
+            var group = characterGroup.transform;
+            for (var i = 0; i < group.childCount; i++) {
+                characters.Add(group.GetChild(i).gameObject);
+            }
+        }
     }
 
     public override void OnDisconnected(DisconnectCause cause) {
@@ -38,7 +46,7 @@ public sealed class SelectManager : MonoBehaviourPunCallbacks {
     public void BtnNext() {
         if (characters == null) return;
 
-        for (var i = 0; i < characters.Length - 1; i++) {
+        for (var i = 0; i < characters.Count - 1; i++) {
             if (characters[i] == null) continue;
             if (characters[i].activeInHierarchy) {
                 characters[i].SetActive(false);
@@ -51,7 +59,7 @@ public sealed class SelectManager : MonoBehaviourPunCallbacks {
     public void BtnPrev() {
         if (characters == null) return;
 
-        for (var i = characters.Length - 1; i >= 1; i--) {
+        for (var i = characters.Count - 1; i >= 1; i--) {
             if (characters[i].activeInHierarchy) {
                 if (characters[i] == null) continue;
                 characters[i - 1].SetActive(true);
@@ -64,7 +72,7 @@ public sealed class SelectManager : MonoBehaviourPunCallbacks {
     public void BtnSelectCharacter() {
         if (characters == null) return;
 
-        for (var i = 0; i < characters.Length; i++) {
+        for (var i = 0; i < characters.Count; i++) {
             if (characters[i] == null) continue;
             if (characters[i].activeInHierarchy) {
                 ExitGames.Client.Photon.Hashtable properties = 
