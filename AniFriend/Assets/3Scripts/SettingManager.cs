@@ -72,14 +72,14 @@ public sealed class SettingManager : MonoBehaviourPunCallbacks {
         foreach (RoomInfo info in roomList) {
             if (roomName.text == info.Name) {
                 if (status != null) {
-                    status.text = "방이름이 이미 존재합니다.";
+                    status.text = "이미 존재하는 방이름입니다.";
                 }
                 return;
             }
         }
 
         if (status != null) {
-            status.text = "방이름이 사용 가능합니다.";
+            status.text = "사용 가능한 방이름 입니다.";
         }
 
         if (next != null) {
