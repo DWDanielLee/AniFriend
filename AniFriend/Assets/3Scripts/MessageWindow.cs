@@ -52,8 +52,10 @@ public sealed class MessageWindow : MonoBehaviourPunCallbacks {
     }
 
     void Update() {
-        var forward = transform.position - Camera.main.transform.position;
-        transform.rotation = Quaternion.LookRotation(forward);
+        if (Camera.main != null) {
+            var forward = transform.position - Camera.main.transform.position;
+            transform.rotation = Quaternion.LookRotation(forward);
+        }
     }
 
     public void ReceiveMessage(string userId, string message) {
