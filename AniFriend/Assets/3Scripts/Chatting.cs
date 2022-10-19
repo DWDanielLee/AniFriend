@@ -85,6 +85,10 @@ public sealed class Chatting : MonoBehaviourPun {
 
             photonView.RPC("InputMessage", RpcTarget.All, 
                 year, month, day, hour, minute, second, userId, nickName, message);
+
+            if (content != null) {
+                content.anchoredPosition = Vector3.zero;
+            }
         }
     }
 

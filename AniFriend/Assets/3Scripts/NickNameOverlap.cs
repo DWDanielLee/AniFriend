@@ -45,6 +45,8 @@ public sealed class NickNameOverlap : MonoBehaviourPunCallbacks {
     }
 
     public void Btn_Complete() {
+        OnOverlap();
+
         if (init == null) return;
 
         if (inputField != null) {
