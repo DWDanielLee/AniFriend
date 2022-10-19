@@ -331,7 +331,7 @@ PrefabInstance:
     - target: {fileID: 1814589390788945319, guid: 55ec14422b2c0c94ca666f3b2deca608, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 795613125}
     - target: {fileID: 1814589390788945319, guid: 55ec14422b2c0c94ca666f3b2deca608, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: GoToLobby
@@ -687,7 +687,7 @@ PrefabInstance:
     - target: {fileID: 1814589390788945319, guid: 55ec14422b2c0c94ca666f3b2deca608, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 795613125}
     - target: {fileID: 1814589390788945319, guid: 55ec14422b2c0c94ca666f3b2deca608, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: GoToLobby
@@ -893,6 +893,14 @@ PrefabInstance:
     - target: {fileID: 8136929258458457368, guid: 69b52bb5f05b01940b4259edaff5c802, type: 3}
       propertyPath: sceneViewId
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136929258458457372, guid: 69b52bb5f05b01940b4259edaff5c802, type: 3}
+      propertyPath: m_Vertical
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136929258458457372, guid: 69b52bb5f05b01940b4259edaff5c802, type: 3}
+      propertyPath: m_Horizontal
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8136929258458457373, guid: 69b52bb5f05b01940b4259edaff5c802, type: 3}
       propertyPath: m_Pivot.x
@@ -1109,6 +1117,10 @@ PrefabInstance:
     - target: {fileID: 8136929259882676116, guid: 69b52bb5f05b01940b4259edaff5c802, type: 3}
       propertyPath: m_Text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136929259882676116, guid: 69b52bb5f05b01940b4259edaff5c802, type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8136929259882676116, guid: 69b52bb5f05b01940b4259edaff5c802, type: 3}
       propertyPath: m_OnSubmit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode

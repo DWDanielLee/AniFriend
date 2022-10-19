@@ -45,6 +45,22 @@ public sealed class NickNameOverlap : MonoBehaviourPunCallbacks {
     }
 
     public void Btn_Complete() {
+        if (button != null) {
+            button.interactable = false;
+        }
+
+        var otherPlayers = PhotonNetwork.PlayerListOthers;
+        foreach (var player in otherPlayers) {
+            if (inputField.text == player.NickName) {
+                overlap.text = "이미 존재하는 닉네임입니다.";
+                return;
+            }
+        }
+
+        if (button != null) {
+            button.interactable = true;
+        }
+
         if (init == null) return;
 
         if (inputField != null) {
@@ -57,6 +73,7 @@ public sealed class NickNameOverlap : MonoBehaviourPunCallbacks {
                 ? PhotonNetwork.LocalPlayer.UserId : PhotonNetwork.LocalPlayer.NickName;
             var message = string.Format($"{nickName}님이 입장하셨습니다.");
             Chatting.Instance.SystemMessage(message);
+            Chatting.Instance.TurnOnChatting();
         }
 
         init.enabled = false;
