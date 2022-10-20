@@ -1,3 +1,4 @@
+using Cinemachine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public sealed class PlayManager : MonoBehaviourPunCallbacks {
     static PlayManager instance;
+
+    [SerializeField] SphereCollider spawnArea;
 
     void Awake() {
         if (instance == null) instance = this;
@@ -55,8 +58,15 @@ public sealed class PlayManager : MonoBehaviourPunCallbacks {
     }
 
     public override void OnJoinedRoom() {
+        var (spawnPos, spawnRadius) = (Vector3.zero, 0f);
+        if (spawnArea != null) {
+            (spawnPos, spawnRadius) = (spawnArea.transform.position, spawnArea.radius);
+        }
+        var (randomX, randomZ) = (Random.Range(0f, spawnRadius), Random.Range(0f, spawnRadius));
+        spawnPos += new Vector3(randomX, 0f, randomZ);
+
         var character = (string)PhotonNetwork.LocalPlayer.CustomProperties["Character"];
-        PhotonNetwork.Instantiate(character, Vector3.zero, Quaternion.identity);
+        PhotonNetwork.Instantiate(character, spawnPos, Quaternion.identity);
 
         if (PhotonNetwork.IsMasterClient) {
             if (Chatting.Instance != null) {

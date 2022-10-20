@@ -47,14 +47,14 @@ public sealed class MessageWindow : MonoBehaviourPunCallbacks {
     }
 
     [PunRPC]
-    void Setting(string userId) { 
+    void Setting(string userId) {
         this.userId = userId;
     }
 
     void Update() {
-        if (Camera.main != null) {
-            var forward = transform.position - Camera.main.transform.position;
-            transform.rotation = Quaternion.LookRotation(forward);
+        if (Camera.main != null && window != null) {
+            var forward = window.transform.position - Camera.main.transform.position;
+            window.transform.rotation = Quaternion.LookRotation(forward);
         }
     }
 
