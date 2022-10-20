@@ -21,6 +21,8 @@ public sealed class Chatting : MonoBehaviourPun {
     [SerializeField] InputField inputField;
     [SerializeField, Range(5, 50)] int max = 10;
 
+    [HideInInspector] public bool isDone = false;
+
     event Action<string, string> Receive;
     public void Register(Action<string, string> Receive) { this.Receive += Receive; }
     public void Unregister(Action<string, string> Receive) { this.Receive -= Receive; }
@@ -98,8 +100,10 @@ public sealed class Chatting : MonoBehaviourPun {
                 (DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
                 DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
 
-            photonView.RPC("InputMessage", RpcTarget.All,
+            if (PhotonNetwork.InRoom) {
+                photonView.RPC("InputMessage", RpcTarget.All,
                 year, month, day, hour, minute, second, userId, nickName, message);
+            }
 
             if (content != null) {
                 content.anchoredPosition = Vector3.zero;
@@ -169,13 +173,15 @@ public sealed class Chatting : MonoBehaviourPun {
         var (year, month, day, hour, minute, second) =
             (DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
             DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
-
-        photonView.RPC("InputMessage", RpcTarget.All,
-            year, month, day, hour, minute, second, userId, nickName, message);
+        if (PhotonNetwork.InRoom) {
+            photonView.RPC("InputMessage", RpcTarget.All,
+                year, month, day, hour, minute, second, userId, nickName, message);
+        }
     }
 
     public void TurnOnChatting() {
         if (inputField == null) return;
         inputField.interactable = true;
+        isDone = true;
     }
 }

@@ -11,7 +11,7 @@ public sealed class NickNameOverlap : MonoBehaviourPunCallbacks {
     [SerializeField] InputField inputField;
     [SerializeField] Text overlap;
     [SerializeField] Button button;
-    
+
     public void OnOverlap() {
         if (inputField == null || overlap == null) return;
 
@@ -75,7 +75,7 @@ public sealed class NickNameOverlap : MonoBehaviourPunCallbacks {
             Chatting.Instance.SystemMessage(message);
             Chatting.Instance.TurnOnChatting();
         }
-
+        
         init.enabled = false;
     }
 }
