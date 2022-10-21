@@ -65,10 +65,4 @@ public sealed class StartManager : MonoBehaviourPunCallbacks {
 
         PhotonNetwork.ConnectUsingSettings();
     }
-
-    public void BtnPlay() {
-        if (!PhotonNetwork.IsConnected) {
-            SceneManager.LoadScene("2Select");
-        }
-    } 
 }

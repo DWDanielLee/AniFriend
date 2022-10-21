@@ -69,7 +69,7 @@ public sealed class SettingManager : MonoBehaviourPunCallbacks {
             return;
         }
 
-        foreach (RoomInfo info in roomList) {
+        foreach (var info in roomList) {
             if (roomName.text == info.Name) {
                 if (status != null) {
                     status.text = "이미 존재하는 방이름입니다.";
@@ -89,8 +89,7 @@ public sealed class SettingManager : MonoBehaviourPunCallbacks {
 
     public void BtnNext() {
         if (roomName == null || pop == null) return;
-        ExitGames.Client.Photon.Hashtable properties =
-            PhotonNetwork.LocalPlayer.CustomProperties;
+        var properties = PhotonNetwork.LocalPlayer.CustomProperties;
         if (properties.ContainsKey("Title")) {
             properties["Title"] = roomName.text;
         } else {

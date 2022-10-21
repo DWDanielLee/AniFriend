@@ -75,8 +75,7 @@ public sealed class SelectManager : MonoBehaviourPunCallbacks {
         for (var i = 0; i < characters.Count; i++) {
             if (characters[i] == null) continue;
             if (characters[i].activeInHierarchy) {
-                ExitGames.Client.Photon.Hashtable properties = 
-                    PhotonNetwork.LocalPlayer.CustomProperties;
+                var properties = PhotonNetwork.LocalPlayer.CustomProperties;
                 if (properties.ContainsKey("Character")) {
                     properties["Character"] = characters[i].name;
                 } else {
