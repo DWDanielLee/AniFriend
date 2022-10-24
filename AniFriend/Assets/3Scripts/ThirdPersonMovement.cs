@@ -21,15 +21,14 @@ public class ThirdPersonMovement : MonoBehaviourPun
     [SerializeField] Transform groundCheck;
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private LayerMask groundMask;
-    private bool isGrounded;
+    public bool isGrounded;
     
-    private Animator animator;
+    private Animator[] animators;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         (Cursor.lockState, Cursor.visible) = (CursorLockMode.None, true);
-        //animator = GetComponent<Animator>();
-
+       
         if (photonView != null) {
             if (photonView.IsMine) {
                 var vrCam = FindObjectOfType<CinemachineFreeLook>();
@@ -38,6 +37,9 @@ public class ThirdPersonMovement : MonoBehaviourPun
                 if (controller != null) controller.enabled = false;
             } 
         }
+        
+        animators = GetComponentsInChildren<Animator>();
+
     }
 
     void Update()
@@ -48,7 +50,6 @@ public class ThirdPersonMovement : MonoBehaviourPun
             && (Chatting.Instance.isDone == false 
             || Chatting.Instance.IsFocused == true)) return;
 
-        //animator.SetBool("bIsJumping", false);
         //Check if it's on Ground
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -84,7 +85,23 @@ public class ThirdPersonMovement : MonoBehaviourPun
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
+        }
+        
+        //Animator
+        if (horizontal != 0 || vertical != 0)
+        {
+            for (int i = 0; i < animators.Length; i++)
+            {
+                animators[i].SetBool("isWalk",true);
+            }
+        }
 
+        else
+        {
+            for (int i = 0; i < animators.Length; i++)
+            {
+                animators[i].SetBool("isWalk",false);
+            }
         }
     }
 }

@@ -1320,6 +1320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725500203b25dcf469bea30e744320cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuSceneMusic: {fileID: 8300000, guid: 33038dcc5a7f4be40a82984930ad7c9f, type: 3}
+  playSceneMusic: {fileID: 8300000, guid: 8c12246aa14ca81478e2cdcee4397f6d, type: 3}
 --- !u!82 &601480849
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1330,11 +1332,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 33038dcc5a7f4be40a82984930ad7c9f, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

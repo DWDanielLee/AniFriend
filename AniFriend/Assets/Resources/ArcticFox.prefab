@@ -109,6 +109,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  isGrounded: 0
 --- !u!114 &4153461634280664331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +144,10 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 317027776611683761}
+  - {fileID: 3154046196951549099}
+  - {fileID: 3696936867401248991}
+  - {fileID: 7086563281042905726}
+  - {fileID: 5092532435846854278}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -535,6 +540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7632763410401448514}
   - component: {fileID: 7632763410392104354}
+  - component: {fileID: 5092532435846854278}
   m_Layer: 0
   m_Name: ArcticFox_LOD3
   m_TagString: Untagged
@@ -579,6 +585,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5092532435846854278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7632763410401480290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &7632763410401480292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,6 +1410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7632763410604928219}
   - component: {fileID: 7632763410595332923}
+  - component: {fileID: 3154046196951549099}
   m_Layer: 0
   m_Name: ArcticFox_LOD0
   m_TagString: Untagged
@@ -1425,6 +1455,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3154046196951549099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7632763410604830971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &7632763410604830973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,6 +1588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7632763410926723074}
   - component: {fileID: 7632763410919460834}
+  - component: {fileID: 3696936867401248991}
   m_Layer: 0
   m_Name: ArcticFox_LOD1
   m_TagString: Untagged
@@ -1579,6 +1633,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3696936867401248991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7632763410926894114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &7632763410926894116
 GameObject:
   m_ObjectHideFlags: 0
@@ -2121,6 +2198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7632763411159794697}
   - component: {fileID: 7632763411152088041}
+  - component: {fileID: 7086563281042905726}
   m_Layer: 0
   m_Name: ArcticFox_LOD2
   m_TagString: Untagged
@@ -2165,6 +2243,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7086563281042905726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7632763411159373865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &7632763411159373867
 GameObject:
   m_ObjectHideFlags: 0

@@ -106,7 +106,11 @@ public sealed class SettingManager : MonoBehaviourPunCallbacks {
             properties.Add("Population", Convert.ToInt32(pop.text));
         }
         PhotonNetwork.LocalPlayer.SetCustomProperties(properties);
+        
+        BgmManager.Instance.StartPlaySceneMusic();
         SceneManager.LoadScene("5Play");
+        
+        
     }
 
     public void BtnPop(int num) {

@@ -6,26 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagement : MonoBehaviour
 {
-    private BgmManager bgm;
-    private Scene scene;
 
-    private void Awake()
-    {
-        scene = SceneManager.GetActiveScene();
-        bgm = FindObjectOfType<BgmManager>();
-        if (scene.name == "5Play")
-        {
-            Debug.Log("dd");
-            //Destroy(bgm.gameObject);
-            return;
-        }
-
-        if (bgm != null)
-        {
-            DontDestroyOnLoad(bgm.gameObject);    
-        }
-        
-    }
 
 
     public void GoToStart()
@@ -35,12 +16,18 @@ public class SceneManagement : MonoBehaviour
     
     public void GoToSelect()
     {
+        
         SceneManager.LoadScene("2Select");
         
     }
     
     public void GoToLobby()
     {
+        Scene curScene = SceneManager.GetActiveScene();
+        if (curScene.name == "5Play")
+        {
+            BgmManager.Instance.StartMenuSceneMusic();
+        }
         SceneManager.LoadScene("3Lobby");
     }
     
@@ -51,6 +38,7 @@ public class SceneManagement : MonoBehaviour
     
     public void GoToPlay()
     {
+        
         SceneManager.LoadScene("5Play");
     }
 }
