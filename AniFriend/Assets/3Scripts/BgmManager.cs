@@ -1,16 +1,63 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public sealed class BgmManager : MonoBehaviour {
-    void Start() {
-        var bgm = FindObjectsOfType<BgmManager>();
-        if (bgm.Length > 1) Destroy(gameObject);
-        DontDestroyOnLoad(this.gameObject);
+public class BgmManager : MonoBehaviour
+{
+    public static BgmManager Instance;
+    
+    AudioSource audioSource;
+    
+    [SerializeField] private AudioClip menuSceneMusic;
+    [SerializeField] private AudioClip playSceneMusic;
+
+    private BgmManager[] bgms;
+
+    private void Awake()
+    {
+        Instance = this;
+        bgms = FindObjectsOfType<BgmManager>();
+         if(bgms.Length > 1)
+             Destroy(bgms[1].gameObject);
+        
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = menuSceneMusic;
+        audioSource.Play();
+        
+        DontDestroyOnLoad(gameObject);
+
     }
-    void Update() {
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(4))
+
+    public void StartPlaySceneMusic()
+    {
+        if (audioSource != null)
         {
-            Destroy(gameObject);
+            audioSource.Stop();
+            audioSource.clip = playSceneMusic;
+            audioSource.Play();
         }
+        
+    }
+
+    public void StartMenuSceneMusic()
+    {
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+            audioSource.clip = menuSceneMusic;
+            audioSource.Play();
+        }
+    }
+
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
