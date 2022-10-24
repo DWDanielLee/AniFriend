@@ -84,7 +84,10 @@ public sealed class Chatting : MonoBehaviourPun {
     void Awake() {
         if (Instance == null) Instance = this;
         else Destroy(this);
+
     }
+
+ 
 
     public void OnSubmit() {
         if (!PhotonNetwork.InRoom) return;

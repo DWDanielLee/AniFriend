@@ -1,3 +1,4 @@
+using System;
 using Photon.Pun;
 using System.Collections;
 using UnityEngine;
@@ -7,7 +8,14 @@ public sealed class MessageWindow : MonoBehaviourPunCallbacks {
     [SerializeField] GameObject window;
     [SerializeField] Text message;
 
+    public Animator[] animators;
+
     string userId;
+
+    private void Awake()
+    {
+        animators = GetComponentsInChildren<Animator>();
+    }
 
     void Start() => photonView.RPC("Init", RpcTarget.All);
     
@@ -49,6 +57,12 @@ public sealed class MessageWindow : MonoBehaviourPunCallbacks {
         StopCoroutine("DelayOff");
         this.message.text = message;
         window.SetActive(true);
+
+        foreach (var t in animators)
+        {
+            t.SetTrigger("doHit");
+        }
+        
         StartCoroutine("DelayOff");
     }
 

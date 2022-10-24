@@ -24,6 +24,15 @@ public class ThirdPersonMovement : MonoBehaviourPun
     private bool isGrounded;
     
     private Animator[] animators;
+
+    public void SetAction()
+    {
+        for (int i = 0; i < animators.Length; i++)
+        {
+            animators[i].SetTrigger("doHit");
+        }
+    }
+    
     private void Start()
     {
         controller = GetComponent<CharacterController>();

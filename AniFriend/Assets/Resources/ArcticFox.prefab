@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 1787379834883950320}
   - component: {fileID: 2619826986814025465}
   - component: {fileID: 5608099782153073758}
-  - component: {fileID: 864446479876204830}
   - component: {fileID: 4153461634280664331}
   - component: {fileID: 1522442185287331861}
   - component: {fileID: 317027776611683761}
@@ -110,26 +109,6 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
---- !u!95 &864446479876204830
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1787379834883950323}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 1b0b46dc3301bde48b59f013024cbec8, type: 3}
-  m_Controller: {fileID: 9100000, guid: cc96420140b3c6e4cae96633af1db9d2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &4153461634280664331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   window: {fileID: 4780832838725300093}
   message: {fileID: 4780832839936062923}
+  animators: []
 --- !u!114 &1522442185287331861
 MonoBehaviour:
   m_ObjectHideFlags: 0
