@@ -76,17 +76,15 @@ public sealed class PlayManager : MonoBehaviourPunCallbacks {
         }
     }
 
-    public override void OnCreateRoomFailed(short returnCode, string message) {
-        SceneManager.LoadScene("3Lobby");
-    }
+    public override void OnCreateRoomFailed(short returnCode, string message) 
+        => SceneManager.LoadScene("3Lobby");
 
-    public override void OnJoinRoomFailed(short returnCode, string message) {
-        SceneManager.LoadScene("3Lobby");
-    }
+    public override void OnJoinRoomFailed(short returnCode, string message) 
+        => SceneManager.LoadScene("3Lobby");
 
-    public override void OnDisconnected(DisconnectCause cause) {
-        SceneManager.LoadScene("1Start");
-    }
+    public override void OnDisconnected(DisconnectCause cause) 
+        => SceneManager.LoadScene("1Start");
+    
 
     void OnDestroy() {
         if (Chatting.Instance == null) return;
@@ -96,4 +94,6 @@ public sealed class PlayManager : MonoBehaviourPunCallbacks {
         var message = $"{nickName}´ÔÀÌ ÅðÀåÇÏ¼Ì½À´Ï´Ù.";
         Chatting.Instance.SystemMessage(message);
     }
+
+    public void BtnBack() => SceneManager.LoadScene("3Lobby");
 }

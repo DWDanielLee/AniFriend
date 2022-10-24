@@ -39,11 +39,10 @@ public sealed class SelectManager : MonoBehaviourPunCallbacks {
         }
     }
 
-    public override void OnDisconnected(DisconnectCause cause) {
-        SceneManager.LoadScene("1Start");
-    }
+    public override void OnDisconnected(DisconnectCause cause) 
+        => SceneManager.LoadScene("1Start");
 
-    public void BtnNext() {
+    public void BtnNextCharacter() {
         if (characters == null) return;
 
         for (var i = 0; i < characters.Count - 1; i++) {
@@ -56,7 +55,7 @@ public sealed class SelectManager : MonoBehaviourPunCallbacks {
         }
     }
 
-    public void BtnPrev() {
+    public void BtnPrevCharacter() {
         if (characters == null) return;
 
         for (var i = characters.Count - 1; i >= 1; i--) {
@@ -88,4 +87,6 @@ public sealed class SelectManager : MonoBehaviourPunCallbacks {
 
         SceneManager.LoadScene("3Lobby");
     }
+
+    public void BtnBack() => SceneManager.LoadScene("1Start");
 }

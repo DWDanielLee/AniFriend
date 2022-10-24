@@ -14,9 +14,9 @@ public sealed class SettingManager : MonoBehaviourPunCallbacks {
     [SerializeField] Text status;
     [SerializeField] Text pop;
     [SerializeField] Button next;
+    [SerializeField] GameObject loading;
 
     List<RoomInfo> roomList;
-
 
     void Awake() {
         if (instance == null) instance = this;
@@ -40,13 +40,12 @@ public sealed class SettingManager : MonoBehaviourPunCallbacks {
         PhotonNetwork.JoinLobby();
     }
 
-    public override void OnRoomListUpdate(List<RoomInfo> roomList) {
-        this.roomList = roomList;
-    }
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+        => this.roomList = roomList;
 
-    public override void OnDisconnected(DisconnectCause cause) {
-        SceneManager.LoadScene("1Start");
-    }
+    public override void OnDisconnected(DisconnectCause cause) 
+        => SceneManager.LoadScene("1Start");
+
 
     public void Overlap() {
         if (roomName == null) return;
@@ -106,12 +105,23 @@ public sealed class SettingManager : MonoBehaviourPunCallbacks {
             properties.Add("Population", Convert.ToInt32(pop.text));
         }
         PhotonNetwork.LocalPlayer.SetCustomProperties(properties);
-        SceneManager.LoadScene("5Play");
+
+        if (loading != null) loading.SetActive(true);
+        StartCoroutine(LoadScene());
     }
 
     public void BtnPop(int num) {
         if (pop != null) {
             pop.text = num.ToString();
         }
+    }
+
+    public void BtnBack() => SceneManager.LoadScene("3Lobby");
+
+    IEnumerator LoadScene() {
+        var asyncOption = SceneManager.LoadSceneAsync("5Play");
+        asyncOption.allowSceneActivation = false;
+        yield return new WaitForSeconds(3f);
+        asyncOption.allowSceneActivation = true;
     }
 }
