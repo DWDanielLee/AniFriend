@@ -39,10 +39,10 @@ public sealed class Chatting : MonoBehaviourPun {
                 if (userId != "System") {
                     var temp = (nickName == null || nickName == "") ? userId : nickName;
                     var insertMessage = $"[{temp}]";
-                    tempMessage = insertMessage + ' '+ tempMessage;
+                    tempMessage = insertMessage + ' ' + tempMessage;
                 }
                 this.text.text = dateMessage + ' ' + tempMessage;
-                this.text.color = PhotonNetwork.LocalPlayer.UserId == userId 
+                this.text.color = PhotonNetwork.LocalPlayer.UserId == userId
                     ? Color.green : Color.white;
             }
         }
@@ -87,7 +87,7 @@ public sealed class Chatting : MonoBehaviourPun {
     }
 
     public void OnSubmit() {
-        if (!PhotonNetwork.InRoom) return; 
+        if (!PhotonNetwork.InRoom) return;
 
         if (inputField != null && inputField.text != "") {
             var message = inputField.text;
@@ -126,9 +126,7 @@ public sealed class Chatting : MonoBehaviourPun {
         CreateMessage(0);
 
     Break:
-        if (Receive != null) {
-            Receive(userId, message);
-        }
+        if (Receive != null) Receive(userId, message);
 
         while (messages.Count > max) {
             var text = messages[0].text;
@@ -138,9 +136,9 @@ public sealed class Chatting : MonoBehaviourPun {
 
         var (width, height) = (content.sizeDelta.x, 0f);
 
-        var rect = prefab_Message.GetComponent<RectTransform>();
-        if (rect != null) {
-            height += rect.sizeDelta.y * messages.Count;
+        var line = prefab_Message.GetComponent<RectTransform>();
+        if (line != null) {
+            height += line.sizeDelta.y * messages.Count;
         }
 
         var vertical = content.GetComponent<VerticalLayoutGroup>();
@@ -149,6 +147,7 @@ public sealed class Chatting : MonoBehaviourPun {
         }
 
         content.sizeDelta = new Vector2(width, height);
+
         inputField.ActivateInputField();
 
         void CreateMessage(int index) {
