@@ -123,5 +123,6 @@ public sealed class SettingManager : MonoBehaviourPunCallbacks {
         asyncOption.allowSceneActivation = false;
         yield return new WaitForSeconds(3f);
         asyncOption.allowSceneActivation = true;
+        BgmManager.Instance.StartPlaySceneMusic();
     }
 }

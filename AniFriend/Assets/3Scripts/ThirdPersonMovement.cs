@@ -23,12 +23,12 @@ public class ThirdPersonMovement : MonoBehaviourPun
     [SerializeField] private LayerMask groundMask;
     private bool isGrounded;
     
-    private Animator animator;
+    private Animator[] animators;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         (Cursor.lockState, Cursor.visible) = (CursorLockMode.None, true);
-        //animator = GetComponent<Animator>();
+        
 
         if (photonView != null) {
             if (photonView.IsMine) {
@@ -38,6 +38,8 @@ public class ThirdPersonMovement : MonoBehaviourPun
                 if (controller != null) controller.enabled = false;
             } 
         }
+        
+        animators = GetComponentsInChildren<Animator>();
     }
 
     void Update()
@@ -85,6 +87,21 @@ public class ThirdPersonMovement : MonoBehaviourPun
 
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
 
+        }
+        
+        if (horizontal != 0 || vertical != 0)	
+        {	
+            for (int i = 0; i < animators.Length; i++)	
+            {	
+                animators[i].SetBool("isWalk",true);	
+            }	
+        }
+        else
+        {
+            for (int i = 0; i < animators.Length; i++)
+            {
+                animators[i].SetBool("isWalk", false);
+            }
         }
     }
 }

@@ -150,6 +150,10 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 4460919848190735006}
+  - {fileID: 8124594158058683172}
+  - {fileID: 8771076212115949823}
+  - {fileID: 8314825144000753721}
+  - {fileID: 1500868601181655391}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -618,6 +622,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7386077123287858727}
   - component: {fileID: 7386077123294843329}
+  - component: {fileID: 8771076212115949823}
   m_Layer: 0
   m_Name: Fox_LOD1
   m_TagString: Untagged
@@ -662,6 +667,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8771076212115949823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386077123287556615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &7386077123287556617
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7386077123376678951}
   - component: {fileID: 7386077123369723841}
+  - component: {fileID: 8124594158058683172}
   m_Layer: 0
   m_Name: Fox_LOD0
   m_TagString: Untagged
@@ -1162,6 +1191,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8124594158058683172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386077123376976903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &7386077123376976905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,6 +1639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7386077123881826725}
   - component: {fileID: 7386077123872265795}
+  - component: {fileID: 1500868601181655391}
   m_Layer: 0
   m_Name: Fox_LOD3
   m_TagString: Untagged
@@ -1631,6 +1684,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1500868601181655391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386077123881657733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &7386077123881657735
 GameObject:
   m_ObjectHideFlags: 0
@@ -2309,6 +2385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7386077124036363797}
   - component: {fileID: 7386077124027050483}
+  - component: {fileID: 8314825144000753721}
   m_Layer: 0
   m_Name: Fox_LOD2
   m_TagString: Untagged
@@ -2353,6 +2430,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8314825144000753721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386077124036401717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &7386077124036401719
 GameObject:
   m_ObjectHideFlags: 0

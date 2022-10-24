@@ -95,5 +95,9 @@ public sealed class PlayManager : MonoBehaviourPunCallbacks {
         Chatting.Instance.SystemMessage(message);
     }
 
-    public void BtnBack() => SceneManager.LoadScene("3Lobby");
+    public void BtnBack()
+    {
+        BgmManager.Instance.StartMenuSceneMusic();
+        SceneManager.LoadScene("3Lobby");
+    }
 }
