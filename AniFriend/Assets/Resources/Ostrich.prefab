@@ -367,6 +367,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  isGrounded: 0
 --- !u!114 &4779602932809881933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,6 +388,10 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 5832087267196385981}
+  - {fileID: 8532031020875889339}
+  - {fileID: 2046276261152958863}
+  - {fileID: 3643821162715233921}
+  - {fileID: 2183508016188111087}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -588,6 +593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6324057179171371079}
   - component: {fileID: 6324057179163875243}
+  - component: {fileID: 2183508016188111087}
   m_Layer: 0
   m_Name: Ostrich_LOD3
   m_TagString: Untagged
@@ -632,6 +638,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2183508016188111087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6324057179171267687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &6324057179171267689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,6 +1279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6324057179354525691}
   - component: {fileID: 6324057179346796567}
+  - component: {fileID: 3643821162715233921}
   m_Layer: 0
   m_Name: Ostrich_LOD2
   m_TagString: Untagged
@@ -1294,6 +1324,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3643821162715233921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6324057179354100699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &6324057179354100701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1718,6 +1771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6324057179763610297}
   - component: {fileID: 6324057179771338069}
+  - component: {fileID: 8532031020875889339}
   m_Layer: 0
   m_Name: Ostrich_LOD0
   m_TagString: Untagged
@@ -1762,6 +1816,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8532031020875889339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6324057179763904153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &6324057179763904155
 GameObject:
   m_ObjectHideFlags: 0
@@ -2287,6 +2364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6324057181036564015}
   - component: {fileID: 6324057181027541443}
+  - component: {fileID: 2046276261152958863}
   m_Layer: 0
   m_Name: Ostrich_LOD1
   m_TagString: Untagged
@@ -2331,6 +2409,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2046276261152958863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6324057181036925455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &6324057181036925457
 GameObject:
   m_ObjectHideFlags: 0

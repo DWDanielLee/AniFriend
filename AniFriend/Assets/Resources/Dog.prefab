@@ -109,6 +109,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  isGrounded: 0
 --- !u!114 &5960681112726114485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +144,10 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 6075759810710649411}
+  - {fileID: 7584879129134331039}
+  - {fileID: 4806970533575667996}
+  - {fileID: 2705446092430627649}
+  - {fileID: 9098158698202524964}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -360,6 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7299942934800758924}
   - component: {fileID: 7299942934810269550}
+  - component: {fileID: 7584879129134331039}
   m_Layer: 0
   m_Name: Dog_LOD0
   m_TagString: Untagged
@@ -404,6 +410,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7584879129134331039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7299942934800786604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 0
+    Name: New Bool
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &7299942934800786606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,6 +1063,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7299942935678445614}
   - component: {fileID: 7299942935668885452}
+  - component: {fileID: 4806970533575667996}
   m_Layer: 0
   m_Name: Dog_LOD1
   m_TagString: Untagged
@@ -1075,6 +1108,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4806970533575667996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7299942935678415886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &7299942935678415888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1845,6 +1901,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7299942935916527229}
   - component: {fileID: 7299942935909093791}
+  - component: {fileID: 2705446092430627649}
   m_Layer: 0
   m_Name: Dog_LOD2
   m_TagString: Untagged
@@ -1889,6 +1946,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2705446092430627649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7299942935916356189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &7299942935916356191
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,6 +2243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7299942936258504622}
   - component: {fileID: 7299942936267556940}
+  - component: {fileID: 9098158698202524964}
   m_Layer: 0
   m_Name: Dog_LOD3
   m_TagString: Untagged
@@ -2207,6 +2288,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9098158698202524964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7299942936258083726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &7299942936258083728
 GameObject:
   m_ObjectHideFlags: 0

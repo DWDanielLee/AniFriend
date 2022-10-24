@@ -109,6 +109,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  isGrounded: 0
 --- !u!114 &1662877545096657651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,6 +598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7386077123287858727}
   - component: {fileID: 7386077123294843329}
+  - component: {fileID: 964661122258913859}
   m_Layer: 0
   m_Name: Fox_LOD1
   m_TagString: Untagged
@@ -641,6 +643,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &964661122258913859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386077123287556615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers: []
 --- !u!1 &7386077123287556617
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,6 +1115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7386077123376678951}
   - component: {fileID: 7386077123369723841}
+  - component: {fileID: 1285107960656624798}
   m_Layer: 0
   m_Name: Fox_LOD0
   m_TagString: Untagged
@@ -1141,6 +1160,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1285107960656624798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386077123376976903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers: []
 --- !u!1 &7386077123376976905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1566,6 +1601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7386077123881826725}
   - component: {fileID: 7386077123872265795}
+  - component: {fileID: 4244513635504771812}
   m_Layer: 0
   m_Name: Fox_LOD3
   m_TagString: Untagged
@@ -1610,6 +1646,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4244513635504771812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386077123881657733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers: []
 --- !u!1 &7386077123881657735
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,6 +2340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7386077124036363797}
   - component: {fileID: 7386077124027050483}
+  - component: {fileID: 4449835910443427589}
   m_Layer: 0
   m_Name: Fox_LOD2
   m_TagString: Untagged
@@ -2332,6 +2385,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4449835910443427589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386077124036401717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers: []
 --- !u!1 &7386077124036401719
 GameObject:
   m_ObjectHideFlags: 0

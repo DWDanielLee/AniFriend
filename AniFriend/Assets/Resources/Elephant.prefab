@@ -109,6 +109,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  isGrounded: 0
 --- !u!114 &7228931951389853112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +130,10 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 4507075608696038603}
+  - {fileID: 7699955543514559166}
+  - {fileID: 4696137507611083263}
+  - {fileID: 2451851691843360035}
+  - {fileID: 3427118086060895818}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -554,6 +559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5069150342816921224}
   - component: {fileID: 5069150342809131374}
+  - component: {fileID: 4696137507611083263}
   m_Layer: 0
   m_Name: Elephant_LOD1
   m_TagString: Untagged
@@ -598,6 +604,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4696137507611083263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5069150342816557736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &5069150342816557738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,6 +1639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5069150343178935644}
   - component: {fileID: 5069150343186363066}
+  - component: {fileID: 7699955543514559166}
   m_Layer: 0
   m_Name: Elephant_LOD0
   m_TagString: Untagged
@@ -1654,6 +1684,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7699955543514559166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5069150343179092348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &5069150343179092350
 GameObject:
   m_ObjectHideFlags: 0
@@ -2046,6 +2099,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5069150343593297010}
   - component: {fileID: 5069150343585819540}
+  - component: {fileID: 3427118086060895818}
   m_Layer: 0
   m_Name: Elephant_LOD3
   m_TagString: Untagged
@@ -2090,6 +2144,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3427118086060895818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5069150343593072722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &5069150343593072724
 GameObject:
   m_ObjectHideFlags: 0
@@ -2684,6 +2761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5069150344133859924}
   - component: {fileID: 5069150344143123890}
+  - component: {fileID: 2451851691843360035}
   m_Layer: 0
   m_Name: Elephant_LOD2
   m_TagString: Untagged
@@ -2728,6 +2806,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2451851691843360035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5069150344133625460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
 --- !u!1 &5069150344133625462
 GameObject:
   m_ObjectHideFlags: 0
