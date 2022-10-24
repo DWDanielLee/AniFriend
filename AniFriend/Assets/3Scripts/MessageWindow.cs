@@ -9,20 +9,8 @@ public sealed class MessageWindow : MonoBehaviourPunCallbacks {
 
     string userId;
 
-    void Start() {
-        photonView.RPC("Init", RpcTarget.All);
-    }
-
-    //public override void OnJoinedRoom() {
-    //    if (photonView.IsMine) {
-    //        photonView.RPC("Init", RpcTarget.All, PhotonNetwork.LocalPlayer.UserId);
-    //    }
-
-    //    if (Chatting.Instance != null) {
-    //        Chatting.Instance.Register(ReceiveMessage);
-    //    }
-    //}
-
+    void Start() => photonView.RPC("Init", RpcTarget.All);
+    
     public override void OnEnable() {
         base.OnEnable();
 
@@ -47,9 +35,7 @@ public sealed class MessageWindow : MonoBehaviourPunCallbacks {
     }
 
     [PunRPC]
-    void Setting(string userId) {
-        this.userId = userId;
-    }
+    void Setting(string userId) => this.userId = userId;
 
     void Update() {
         if (Camera.main != null && window != null) {
