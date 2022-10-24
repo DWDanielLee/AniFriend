@@ -70,10 +70,12 @@ public sealed class LobbyManager : MonoBehaviourPunCallbacks {
         }
 
         var (width, height) = (content.sizeDelta.x, 0f);
+
         var rect = prefab_room.GetComponent<RectTransform>();
         if (rect != null) {
             height += rect.rect.height * roomQueue.Count;
         }
+
         var padding = content.GetComponent<VerticalLayoutGroup>();
         if (padding != null) {
             height += padding.padding.top + padding.padding.bottom;
