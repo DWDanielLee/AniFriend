@@ -12,6 +12,7 @@ public sealed class LobbyManager : MonoBehaviourPunCallbacks {
     [SerializeField] GameObject prefab_room;
     [SerializeField] RectTransform content;
     [SerializeField] GameObject loading;
+    [SerializeField] float spacing = 15f;
 
     Queue<GameObject> roomQueue = new Queue<GameObject>();
 
@@ -80,6 +81,9 @@ public sealed class LobbyManager : MonoBehaviourPunCallbacks {
         if (padding != null) {
             height += padding.padding.top + padding.padding.bottom;
         }
+
+        height += spacing * (roomQueue.Count > 0 ? roomQueue.Count - 1 : 0);
+
         content.sizeDelta = new Vector2(width, height);
     }
 
