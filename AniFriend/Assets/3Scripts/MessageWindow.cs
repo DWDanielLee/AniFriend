@@ -11,12 +11,14 @@ public sealed class MessageWindow : MonoBehaviourPunCallbacks {
     [SerializeField] Text message;
 
     public Animator[] animators;
+    public ThirdPersonMovement actor;
 
     string userId;
 
     private void Awake()
     {
         animators = GetComponentsInChildren<Animator>();
+        actor = GetComponent<ThirdPersonMovement>();
     }
 
     void Start() => photonView.RPC("Init", RpcTarget.All);
@@ -59,33 +61,10 @@ public sealed class MessageWindow : MonoBehaviourPunCallbacks {
         StopCoroutine("DelayOff");
         this.message.text = message;
         window.SetActive(true);
-
-        int randomAni = Random.Range(0, 4);
-        string aniName = "";
-        switch (randomAni)
-        {
-            case 0:
-                aniName = "doHit";
-                break;
-            case 1:
-                aniName = "doRoll";
-                break;
-            case 2:
-                aniName = "doClicked";
-                break;
-            case 3:
-                aniName = "doFly";
-                break;
-            case 4:
-                aniName = "doAttack";
-                break;
-        }
-
-        foreach (var t in animators)
-        {
-            t.SetTrigger(aniName);
-        }
         
+        //종권추가
+        actor.ChatAction();
+
         StartCoroutine("DelayOff");
     }
 
