@@ -618,7 +618,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1886429155}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999974
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -843,7 +843,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000023256438}
+  m_AnchoredPosition: {x: 0, y: -0.000036776066}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &710302245
@@ -919,6 +919,7 @@ MonoBehaviour:
   prefab_room: {fileID: 2472498472331441513, guid: 120a3f88a26e6a14791ca5181214c30a, type: 3}
   content: {fileID: 710302244}
   loading: {fileID: 1332484903}
+  spacing: 15
 --- !u!1 &1147749613
 GameObject:
   m_ObjectHideFlags: 0
