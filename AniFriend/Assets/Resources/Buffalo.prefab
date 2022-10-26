@@ -42,10 +42,10 @@ GameObject:
   - component: {fileID: 1787379834883950320}
   - component: {fileID: 6860391700209423926}
   - component: {fileID: 4803367335842326758}
-  - component: {fileID: 1494869222232365106}
   - component: {fileID: 3974637003850216730}
   - component: {fileID: 8462768926258486226}
   - component: {fileID: 4674688550268939170}
+  - component: {fileID: 8932371690210381032}
   m_Layer: 0
   m_Name: Buffalo
   m_TagString: Player
@@ -110,26 +110,6 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
---- !u!95 &1494869222232365106
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1787379834883950323}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 1b0b46dc3301bde48b59f013024cbec8, type: 3}
-  m_Controller: {fileID: 9100000, guid: cc96420140b3c6e4cae96633af1db9d2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &3974637003850216730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   window: {fileID: 5629674163458080106}
   message: {fileID: 5629674164669097948}
+  animators: []
+  actor: {fileID: 0}
 --- !u!114 &4674688550268939170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +169,102 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!82 &8932371690210381032
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787379834883950323}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: aacc0c98c24c24d4c88625f4f7783a88, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5629674163458080106
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,6 +820,24 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 1
     Name: isWalk
+  - Type: 9
+    SynchronizeType: 1
+    Name: doHit
+  - Type: 9
+    SynchronizeType: 1
+    Name: doRoll
+  - Type: 4
+    SynchronizeType: 1
+    Name: doClicked
+  - Type: 4
+    SynchronizeType: 1
+    Name: doFly
+  - Type: 4
+    SynchronizeType: 1
+    Name: doAttack
+  - Type: 4
+    SynchronizeType: 1
+    Name: doJump
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
@@ -1080,6 +1176,24 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 1
     Name: isWalk
+  - Type: 9
+    SynchronizeType: 1
+    Name: doHit
+  - Type: 9
+    SynchronizeType: 1
+    Name: doRoll
+  - Type: 4
+    SynchronizeType: 1
+    Name: doClicked
+  - Type: 4
+    SynchronizeType: 1
+    Name: doFly
+  - Type: 4
+    SynchronizeType: 1
+    Name: doAttack
+  - Type: 4
+    SynchronizeType: 1
+    Name: doJump
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
@@ -1752,6 +1866,24 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 1
     Name: isWalk
+  - Type: 9
+    SynchronizeType: 1
+    Name: doHit
+  - Type: 9
+    SynchronizeType: 1
+    Name: doRoll
+  - Type: 4
+    SynchronizeType: 1
+    Name: doClicked
+  - Type: 4
+    SynchronizeType: 1
+    Name: doFly
+  - Type: 4
+    SynchronizeType: 1
+    Name: doAttack
+  - Type: 4
+    SynchronizeType: 1
+    Name: doJump
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
@@ -2498,6 +2630,24 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 1
     Name: isWalk
+  - Type: 9
+    SynchronizeType: 1
+    Name: doHit
+  - Type: 9
+    SynchronizeType: 1
+    Name: doRoll
+  - Type: 4
+    SynchronizeType: 1
+    Name: doClicked
+  - Type: 4
+    SynchronizeType: 1
+    Name: doFly
+  - Type: 4
+    SynchronizeType: 1
+    Name: doAttack
+  - Type: 4
+    SynchronizeType: 1
+    Name: doJump
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0

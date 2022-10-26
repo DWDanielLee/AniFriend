@@ -24,11 +24,15 @@ public class ThirdPersonMovement : MonoBehaviourPun
     private bool isGrounded;
     
     private Animator[] animators;
+    private AudioSource audioSource;
+    
     private void Start()
     {
+        animators = GetComponentsInChildren<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        
         controller = GetComponent<CharacterController>();
         (Cursor.lockState, Cursor.visible) = (CursorLockMode.None, true);
-        
 
         if (photonView != null) {
             if (photonView.IsMine) {
@@ -38,8 +42,35 @@ public class ThirdPersonMovement : MonoBehaviourPun
                 if (controller != null) controller.enabled = false;
             } 
         }
-        
-        animators = GetComponentsInChildren<Animator>();
+    }
+
+    public void ChatAction()
+    {
+        int randomAni = Random.Range(0, 5);
+        string aniName = "";
+        switch (randomAni)
+        {
+            case 0:
+                aniName = "doHit";
+                break;
+            case 1:
+                aniName = "doRoll";
+                break;
+            case 2:
+                aniName = "doClicked";
+                break;
+            case 3:
+                aniName = "doFly";
+                break;
+            case 4:
+                aniName = "doAttack";
+                break;
+        }
+
+        foreach (var t in animators)
+        {
+            t.SetTrigger(aniName);
+        }
     }
 
     void Update()
@@ -73,6 +104,11 @@ public class ThirdPersonMovement : MonoBehaviourPun
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            foreach (var anis in animators)
+            {
+                anis.SetTrigger("doJump");
+            }
+            audioSource.Play();
             //animator.SetBool("bIsJumping", true);
         }
 
