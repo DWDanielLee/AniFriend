@@ -1,7 +1,9 @@
 using Photon.Pun;
 using Photon.Realtime;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,7 +16,7 @@ public sealed class LobbyManager : MonoBehaviourPunCallbacks {
     [SerializeField] GameObject loading;
     [SerializeField] float spacing = 15f;
 
-    Queue<GameObject> roomQueue = new Queue<GameObject>();
+    List<Tuple<GameObject, RoomInfo>> rooms = new List<Tuple<GameObject, RoomInfo>>();
 
     void Awake() {
         if (Instance == null) Instance = this;
@@ -35,15 +37,11 @@ public sealed class LobbyManager : MonoBehaviourPunCallbacks {
     }
 
     IEnumerator Renew() {
-        while (true) { 
+        while (true) {
             if (PhotonNetwork.InLobby) {
-                if (roomQueue.Count != PhotonNetwork.CountOfRooms) {
-                    PhotonNetwork.LeaveLobby();
-                    PhotonNetwork.JoinLobby();
-                }
-            } else {
-                PhotonNetwork.JoinLobby();
+                PhotonNetwork.LeaveLobby();
             }
+            PhotonNetwork.JoinLobby();
             yield return new WaitForSeconds(5f);
         }
     }
@@ -52,9 +50,28 @@ public sealed class LobbyManager : MonoBehaviourPunCallbacks {
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList) {
         if (prefab_room == null || content == null) return;
+ 
+        if (rooms.Count == roomList.Count) {
+            var infos = from room in rooms
+                        select room.Item2;
 
-        while (roomQueue.Count > 0) {
-            Destroy(roomQueue.Dequeue());
+            foreach (var info in infos) {
+                foreach (var room in roomList) {
+                    if (info.Name == room.Name && info.PlayerCount == room.PlayerCount) 
+                        goto Continue;
+                }
+                goto IsDifferent;
+            Continue: continue;
+            }
+        } else { goto IsDifferent; }
+
+        return;
+
+    IsDifferent:
+        while (rooms.Count > 0) {
+            var obj = rooms[0].Item1;
+            rooms.RemoveAt(0);
+            Destroy(obj);
         }
 
         foreach (var info in roomList) {
@@ -67,14 +84,14 @@ public sealed class LobbyManager : MonoBehaviourPunCallbacks {
             if (room == null) { Destroy(obj); return; }
 
             room.Init(info.Name, info.PlayerCount, info.MaxPlayers);
-            roomQueue.Enqueue(obj);
+            rooms.Add(new Tuple<GameObject, RoomInfo>(obj, info));
         }
 
         var (width, height) = (content.sizeDelta.x, 0f);
 
         var rect = prefab_room.GetComponent<RectTransform>();
         if (rect != null) {
-            height += rect.rect.height * roomQueue.Count;
+            height += rect.rect.height * rooms.Count;
         }
 
         var padding = content.GetComponent<VerticalLayoutGroup>();
@@ -82,12 +99,12 @@ public sealed class LobbyManager : MonoBehaviourPunCallbacks {
             height += padding.padding.top + padding.padding.bottom;
         }
 
-        height += spacing * (roomQueue.Count > 0 ? roomQueue.Count - 1 : 0);
+        height += spacing * (rooms.Count > 0 ? rooms.Count - 1 : 0);
 
         content.sizeDelta = new Vector2(width, height);
     }
 
-    public override void OnDisconnected(DisconnectCause cause) 
+    public override void OnDisconnected(DisconnectCause cause)
         => SceneManager.LoadScene("1Start");
 
     public void NextScene(string title) {

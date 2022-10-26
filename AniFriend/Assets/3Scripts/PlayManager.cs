@@ -44,6 +44,8 @@ public sealed class PlayManager : MonoBehaviourPunCallbacks {
 
         var title = (string)PhotonNetwork.LocalPlayer.CustomProperties["Title"];
 
+        PhotonNetwork.LocalPlayer.NickName = "";
+
         if ((bool)PhotonNetwork.LocalPlayer.CustomProperties["Host"]) {
             if (!PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("Population")) {
                 SceneManager.LoadScene("3Lobby");
@@ -93,6 +95,8 @@ public sealed class PlayManager : MonoBehaviourPunCallbacks {
             ? PhotonNetwork.LocalPlayer.UserId : PhotonNetwork.LocalPlayer.NickName;
         var message = $"{nickName}¥‘¿Ã ≈¿Â«œºÃΩ¿¥œ¥Ÿ.";
         Chatting.Instance.SystemMessage(message);
+
+        PhotonNetwork.LocalPlayer.NickName = "";
     }
 
     public void BtnBack()
