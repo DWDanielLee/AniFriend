@@ -1,8 +1,10 @@
 using System;
 using Photon.Pun;
 using System.Collections;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public sealed class MessageWindow : MonoBehaviourPunCallbacks {
     [SerializeField] GameObject window;
@@ -58,9 +60,30 @@ public sealed class MessageWindow : MonoBehaviourPunCallbacks {
         this.message.text = message;
         window.SetActive(true);
 
+        int randomAni = Random.Range(0, 4);
+        string aniName = "";
+        switch (randomAni)
+        {
+            case 0:
+                aniName = "doHit";
+                break;
+            case 1:
+                aniName = "doRoll";
+                break;
+            case 2:
+                aniName = "doClicked";
+                break;
+            case 3:
+                aniName = "doFly";
+                break;
+            case 4:
+                aniName = "doAttack";
+                break;
+        }
+
         foreach (var t in animators)
         {
-            t.SetTrigger("doHit");
+            t.SetTrigger(aniName);
         }
         
         StartCoroutine("DelayOff");
