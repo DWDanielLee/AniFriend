@@ -86,9 +86,10 @@ public sealed class PlayManager : MonoBehaviourPunCallbacks {
 
     public override void OnDisconnected(DisconnectCause cause) 
         => SceneManager.LoadScene("1Start");
-    
 
-    void OnDestroy() {
+    public override void OnDisable() {
+        base.OnDisable();
+
         if (Chatting.Instance == null) return;
         var nickName = PhotonNetwork.LocalPlayer.NickName == null 
             || PhotonNetwork.LocalPlayer.NickName == ""
